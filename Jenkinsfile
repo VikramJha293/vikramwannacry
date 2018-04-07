@@ -7,7 +7,7 @@ node {
    }
   stage('Maven Build') {
     echo 'Build is started'
-      withMaven(jdk: 'Local jdk1.8.0_121', maven: 'Maven-3.5.3') {
+      withMaven(jdk: 'Local jdk1.8.0_121', maven: 'maven-3.5.3') {
          sh 'mvn clean compile  '
       }
    }
@@ -23,9 +23,7 @@ node {
          sh 'mvn test package'
       }
    }
-    stage('Archival') {
-    echo 'archived to JFrog repo' 
-   }
+   
    stage('Deploy to Dev') {
     echo 'Deploy to Dev' 
    }
