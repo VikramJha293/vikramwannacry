@@ -7,19 +7,19 @@ node {
    }
   stage('Maven Build') {
     echo 'Build is started'
-      withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.5.3') {
+      withMaven(jdk: 'Local jdk1.8.0_121', maven: 'Maven-3.5.3') {
          sh 'mvn clean compile  '
       }
    }
    stage('Test Execution') {
     echo 'Test is executed' 
-      withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.5.3') {
+      withMaven(jdk: 'Local jdk1.8.0_121', maven: 'maven-3.5.3') {
          sh 'mvn test package'
       }
    }
    stage('Test Execution') {
     echo 'Test is executed' 
-      withMaven(maven: 'Maven-3.5.3') {
+      withMaven(maven: 'maven-3.5.3') {
          sh 'mvn test package'
       }
    }
