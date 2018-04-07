@@ -5,10 +5,16 @@ node {
       git 'https://github.com/VikramJha293/vikramwannacry.git'
      
    }
-   stage('Maven Build') {
+  stage('Maven Build') {
     echo 'Build is started'
-      withMaven(maven: 'Maven-3.5.3') {
+      withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.5.3') {
          sh 'mvn clean compile  '
+      }
+   }
+   stage('Test Execution') {
+    echo 'Test is executed' 
+      withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.5.3') {
+         sh 'mvn test package'
       }
    }
    stage('Test Execution') {
